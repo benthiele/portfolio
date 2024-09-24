@@ -1,1 +1,64 @@
+# Earnings Call Sentiment Analysis
+
+This repository contains a Jupyter notebook that performs sentiment analysis on earnings call transcripts and explores potential correlations with stock price movements. The notebook was copied from google colab and can also be found at this url:
 https://colab.research.google.com/drive/1OtkgY4p3bTR-p7PP7VO66DnfOaxR0s1T?usp=sharing
+
+## Overview
+
+The notebook in this repository demonstrates various natural language processing (NLP) techniques applied to earnings call transcripts. It includes data preprocessing, sentiment analysis using different methods, and statistical analysis to explore relationships between sentiment scores and stock price changes.
+
+## Main Components
+
+1. **Data Preprocessing**
+   - Cleaning and tokenizing text data
+   - Removing special characters, punctuation, and stopwords
+   - Lemmatization of tokens
+
+2. **Sentiment Analysis Methods**
+   - VADER (Valence Aware Dictionary and sEntiment Reasoner) sentiment analysis
+   - Custom risk score calculation based on predefined risk-related words
+
+3. **Statistical Analysis**
+   - Granger causality tests between sentiment scores and stock price changes
+   - Spearman rank correlation analysis
+
+4. **Visualization**
+   - Histograms of sentiment scores and correlations
+
+## Key Features
+
+- Separates earnings call transcripts into pre-Q&A and Q&A sections for distinct analysis
+- Implements multiple sentiment analysis approaches (VADER v1, VADER v2, risk scores)
+- Explores potential causality and correlation between sentiment changes and subsequent stock price movements
+- Visualizes distributions of sentiment scores and correlation results
+
+## Usage
+
+To use this notebook:
+
+1. Open the Jupyter notebook in Google Colab or your preferred Jupyter environment.
+2. Ensure you have the required libraries installed (pandas, numpy, nltk, statsmodels, scipy, matplotlib).
+3. Run the cells sequentially to perform the analysis on your earnings call transcript data.
+
+## Data Requirements
+
+The notebook expects input data in the form of:
+- Text files containing earnings call transcripts
+- CSV files with corresponding stock price data
+
+Ensure your data is properly formatted and accessible before running the analysis.
+
+## Results
+
+The analysis in this notebook aims to uncover potential relationships between earnings call sentiment and stock price movements. However, the results suggest that these relationships may be weak or inconsistent, as indicated by the normally distributed correlation scores centered around zero.
+
+## Future Work
+
+Potential areas for expansion or improvement:
+- Incorporating more advanced NLP techniques
+- Exploring alternative sentiment analysis models
+- Investigating industry-specific patterns or trends
+
+## Note
+
+This project is for educational and research purposes only. It should not be used for making financial decisions without further validation and expert consultation.
