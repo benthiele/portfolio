@@ -1,1 +1,51 @@
+# Cobalt Trading System based on DRC News Analysis
 
+## Overview
+
+This project implements a trading system that analyzes tweets about the Democratic Republic of Congo (DRC) from Al Jazeera's Twitter account to predict and trade cobalt commodity prices. The system is based on the theory that since 70% of the world's cobalt comes from the Congo, any turbulence in the Congolese economy significantly impacts global cobalt prices.
+
+## Components
+
+The system consists of three main Python files:
+
+1. `server.py`: Simulates a real-time data feed of orders and tweets.
+2. `client.py`: Processes the data feed, analyzes tweets, and manages the trading portfolio.
+3. `backtester.py`: Performs historical analysis and backtesting of the trading strategy.
+
+## How it Works
+
+1. **Data Simulation (server.py)**:
+   - Reads order data and tweet data from CSV files (`orders_small.csv` and `twitter_updated_small.csv`).
+   - Simulates a real-time feed by sending this data to connected clients with a 1-second delay between each transmission.
+
+2. **Real-time Processing (client.py)**:
+   - Connects to the server and receives the simulated real-time data feed.
+   - For each tweet, it uses OpenAI's GPT-3.5-turbo model to analyze whether the tweet indicates a harmful event affecting hundreds of thousands of people in the DRC.
+   - Manages an order book and updates a trading portfolio based on the tweet analysis and incoming order data.
+
+3. **Backtesting (backtester.py)**:
+   - Loads historical tweet and price data from a CSV file.
+   - Performs the same tweet analysis using OpenAI's API.
+   - Implements a trading strategy based on the tweet sentiments and technical indicators.
+   - Calculates and visualizes the performance of this strategy over the historical data.
+
+## Theory and Strategy
+
+The trading strategy is based on the premise that negative news about the DRC is likely to disrupt cobalt production or supply, leading to price increases. The system:
+
+1. Buys cobalt when a tweet is classified as indicating a large-scale harmful event in the DRC.
+2. Sells based on a combination of technical indicators (moving averages) and a trailing stop loss.
+
+This approach aims to capitalize on the unique position of the DRC in the global cobalt market, using news sentiment as a leading indicator of price movements.
+
+## Usage
+
+1. Ensure you have the required Python libraries installed (see `requirements.txt`).
+2. Set up your OpenAI API key in the client and backtester files.
+3. Run `server.py` to start the simulated data feed.
+4. Run `client.py` to connect to the server and start real-time trading.
+5. Use `backtester.py` to analyze historical performance and optimize the strategy.
+
+## Disclaimer
+
+This system is for educational and research purposes only. Real-world trading involves significant risks and requires thorough testing, risk management, and regulatory compliance.
