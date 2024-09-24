@@ -1,1 +1,70 @@
+# Dog Breed Classifier Streamlit App
 
+This Streamlit app allows users to train and use a convolutional neural network (CNN) to classify dog breeds based on user-provided images.
+
+## Features
+
+- **Custom Dataset Training**: Users can upload their own labeled dataset of dog images for training.
+- **Flexible Breed Selection**: The app can work with any number of dog breeds, as determined by the user's input data.
+- **Interactive Training Process**: Train the model directly through the Streamlit interface.
+- **Real-time Performance Metrics**: View training and validation loss curves during the training process.
+- **Model Testing**: Evaluate the trained model's performance on a separate test dataset.
+- **Confusion Matrix Visualization**: Understand the model's classification performance across different breeds.
+- **Single Image Prediction**: Upload individual images to get breed predictions from the trained model.
+- **Model Export**: Save and download the trained model for future use or deployment.
+
+## How to Use
+
+1. **Prepare Your Data**: 
+   - Organize your dog images into three zip files: 'train', 'valid', and 'test'.
+   - Within each zip, create folders named after the dog breeds (e.g., 'Labrador', 'Poodle', 'Bulldog').
+   - Place the corresponding images in each breed folder.
+
+2. **Upload Data**:
+   - Use the file uploaders to submit your 'train', 'valid', and 'test' zip files.
+
+3. **Train the Model**:
+   - Click the 'Train Model' button to start the training process.
+   - Watch real-time updates of training and validation loss.
+
+4. **Test the Model**:
+   - After training, use the 'Test Model' button to evaluate performance on the test set.
+   - View the confusion matrix and precision/recall metrics.
+
+5. **Make Predictions**:
+   - Use the 'Visualize a single prediction!' button to classify individual dog images.
+
+6. **Export the Model**:
+   - Click 'Export Model' to download the trained model and associated files.
+
+## Requirements
+
+- Python 3.7+
+- See `requirements.txt` for necessary Python packages.
+
+## Installation
+
+1. Clone this repository:
+   ```
+   git clone https://github.com/yourusername/dog-breed-classifier.git
+   ```
+2. Install required packages:
+   ```
+   pip install -r requirements.txt
+   ```
+3. Run the Streamlit app:
+   ```
+   streamlit run app.py
+   ```
+
+## Notes
+
+- The app uses a custom CNN architecture optimized for dog breed classification.
+- Training time may vary depending on the size of your dataset and your hardware capabilities.
+- For best results, ensure your training data is diverse and representative of the breeds you want to classify.
+
+## Future Improvements
+
+- Integration with pre-trained models for transfer learning.
+- Support for data augmentation to improve model generalization.
+- Option to fine-tune hyperparameters through the UI.
