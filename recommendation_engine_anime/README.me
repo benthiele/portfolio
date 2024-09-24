@@ -1,1 +1,70 @@
+# Anime Recommendation Engine
 
+This repository contains the code and data for an anime recommendation system using both collaborative and content-based filtering approaches.
+
+## Files in this Repository
+
+1. `collaborative_filter.ipynb`: Jupyter notebook implementing collaborative filtering for anime recommendations.
+2. `content_filter.ipynb`: Jupyter notebook implementing content-based filtering for anime recommendations.
+3. `anime.csv`: CSV file containing basic anime information such as anime_id, name, and genre.
+4. `anime_with_synopsis.csv`: CSV file containing anime information including synopses.
+5. `external_links.txt`: Text file containing links to additional large CSV files stored on Google Drive. This includes `rating_complete.csv` (user ratings for content) and `animelist.csv` (rating_complete but with additional columns for watching_status and watched_episodes)
+
+## Getting Started
+
+1. Clone this repository:
+   ```
+   git clone https://github.com/your-username/recommendation_engine_anime.git
+   ```
+
+2. Install the required dependencies (it's recommended to use a virtual environment):
+   ```
+   pip install -r requirements.txt
+   ```
+
+3. Download the large CSV files using the links provided in `external_links.txt`.
+
+4. Open and run the Jupyter notebooks:
+   ```
+   jupyter notebook
+   ```
+
+## Notebooks
+
+- Collaborative Filtering (collaborative_filter.ipynb)
+This notebook implements a collaborative filtering approach using the Surprise library. Key features include:
+Utilization of Singular Value Decomposition (SVD) algorithm for matrix factorization.
+Hyperparameter tuning with n_factors=25 and n_epochs=10.
+Cross-validation to ensure model reliability.
+Filtering of users and anime titles based on minimum rating thresholds.
+Creation of a prediction pipeline for personalized anime recommendations.
+This approach is applied for users who have rated 50 or more anime titles.
+
+- Content-based Filtering (content_filter.ipynb)
+This notebook implements a content-based filtering approach. Key aspects include:
+Target Audience: Users who have rated fewer than 50 animes (approximately 20% of all users).
+Feature Engineering:
+One-hot encoding for categorical features: 'Genres,' 'Type,' and 'Rating'.
+Scaling of the numerical 'popularity rank' feature to a 0-1 range.
+Extraction of frequent words from 'Name' to connect franchise titles.
+Custom tokenization of 'synopsis' text to identify keywords and link animes with similar plot elements.
+Dimensionality Reduction: Truncated SVD is used to reduce the dimensionality of the textual analysis.
+Similarity Calculation: A cosine similarity matrix is computed to find similarities between all anime titles.
+User Preference Modeling:
+The algorithm identifies a proxy for user preference by selecting the most popular anime among those the user has given their highest rating.
+This proxy is then used with the similarity matrix to find recommendations.
+This approach combines metadata analysis for categorical features with NLP analysis of synopses, providing a rich, multi-faceted representation of each anime for more accurate recommendations.
+
+## Data
+
+- `anime.csv`: Contains basic information about various anime titles.
+- `anime_with_synopsis.csv`: An extended dataset that includes synopses for each anime.
+- Additional CSV files (referenced in `external_links.txt`): Contain more comprehensive data used in the recommendation algorithms.
+
+## Contributing
+
+Feel free to fork this repository and submit pull requests with any improvements or additional features you'd like to see in the recommendation engine.
+
+## Contact
+
+If you have any questions or suggestions, please open an issue in this repository or contact me at [benthiele@uchicago.edu].
